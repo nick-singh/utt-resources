@@ -1,0 +1,27 @@
+#THIS IS A WEBSERVER FOR DEMONSTRATING THE TYPES OF RESPONSES WE SEE FROM AN API ENDPOINT
+from flask import Flask
+app = Flask(__name__)
+
+#GET REQUEST
+
+@app.route('/readHello')
+def getRequestHello():
+	pass #todo
+
+#POST REQUEST
+@app.route('/createHello', methods = ['POST'])
+def postRequestHello():
+	pass #todo
+#UPDATE REQUEST
+@app.route('/updateHello', methods = ['PUT'])
+def updateRequestHello():
+	pass #todo
+
+#DELETE REQUEST
+@app.route('/deleteHello', methods = ['DELETE'])
+def deleteRequestHello():
+	pass #todo
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host='0.0.0.0', port=5000)
