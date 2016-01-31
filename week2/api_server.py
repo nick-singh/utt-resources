@@ -6,12 +6,13 @@ app = Flask(__name__)
 
 @app.route('/readHello')
 def getRequestHello():
-	pass #todo
+	return "Hi, I got your GET Request!"
 
 #POST REQUEST
 @app.route('/createHello', methods = ['POST'])
 def postRequestHello():
 	pass #todo
+	
 #UPDATE REQUEST
 @app.route('/updateHello', methods = ['PUT'])
 def updateRequestHello():
