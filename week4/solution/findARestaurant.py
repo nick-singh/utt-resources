@@ -7,9 +7,9 @@ import codecs
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-foursquare_client_id = ""
-foursquare_client_secret = ""
-google_api_key = ""
+foursquare_client_id = "P0ZAGLGKKXLD50RFY4AKJHWPPIL5NJWNVE1UHOJCGKZHLFUB"
+foursquare_client_secret = "FLLJ2TP3SKNSJQYGBSVURTTXCXJQCLVBGH3NUOMRY20ZXBIE"
+google_api_key = "AIzaSyAt-lQkLsGUVO1BnRQW03N-pgNJGne63Sk"
 
 def getGeocodeLocation(inputString):
     #Replace Spaces with '+' in URL
@@ -51,7 +51,7 @@ def findARestaurant(mealType, location):
             suffix = firstpic['suffix']
             imageURL = prefix + "300x300" + suffix
         else:
-            imageURL = "http://pixabay.com/get/8926af5eb597ca51ca4c/1433440765/cheeseburger-34314_1280.png?direct"
+            imageURL = "http://runawayapricot.com/wp-content/uploads/2014/09/placeholder.jpg"
 
         restaurantInfo = {'name':restaurant_name, 'address':restaurant_address, 'image':imageURL}
         #print "Restaurant Name: %s " % restaurantInfo['name']
@@ -64,12 +64,12 @@ def findARestaurant(mealType, location):
 
 
 if __name__ == '__main__':
-    findARestaurant("Pizza", "Tokyo, Japan")
-    findARestaurant("Tacos", "Jakarta, Indonesia")
-    findARestaurant("Tapas", "Maputo, Mozambique")
-    findARestaurant("Falafel", "Cairo, Egypt")
-    findARestaurant("Spaghetti", "New Delhi, India")
-    findARestaurant("Cappuccino", "Geneva, Switzerland") 
-    findARestaurant("Sushi", "Los Angeles, California")
-    findARestaurant("Steak", "La Paz, Bolivia")
-    findARestaurant("Gyros", "Sydney Austrailia")        
+    print findARestaurant("sushi", "chaguanas")
+    # findARestaurant("Tacos", "Jakarta, Indonesia")
+    # findARestaurant("Tapas", "Maputo, Mozambique")
+    # findARestaurant("Falafel", "Cairo, Egypt")
+    # findARestaurant("Spaghetti", "New Delhi, India")
+    # findARestaurant("Cappuccino", "Geneva, Switzerland") 
+    # findARestaurant("Sushi", "Los Angeles, California")
+    # findARestaurant("Steak", "La Paz, Bolivia")
+    # findARestaurant("Gyros", "Sydney Austrailia")        
