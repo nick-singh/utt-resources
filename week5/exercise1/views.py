@@ -15,8 +15,8 @@ app = Flask(__name__)
 
 @app.route('/api/users', methods = ['POST'])
 def new_user():
-    username = request.json.get('username')
-    password = request.json.get('password')
+    username = request.json['username']
+    password = request.json['password']
     if username is None or password is None:
         abort(400) # missing arguments
     if session.query(User).filter_by(username = username).first() is not None:

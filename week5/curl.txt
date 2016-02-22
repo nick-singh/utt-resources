@@ -1,0 +1,8 @@
+curl -i -X POST -H "Content-Tye:application/json" -d '{"username":"nick","password":"pw"}' http://localhost:5000/api/users
+
+
+curl -u nick:pw -i -X GET http://localhost:5000/api/resource
+
+curl -u eyJhbGciOiJIUzI1NiIsImV4cCI6MTQ1NjEwMjc3OSwiaWF0IjoxNDU2MTAyMTc5fQ.eyJpZCI6MX0.mc6gVWS4SNXGRNe655pe0LO1gxfGo8jrEr3mBUWtdkU:blank -i -X GEt http://localhost:5000/api/resource
+
+eyJhbGciOiJIUzI1NiIsImV4cCI6MTQ1NjEwMjc3OSwiaWF0IjoxNDU2MTAyMTc5fQ.eyJpZCI6MX0.mc6gVWS4SNXGRNe655pe0LO1gxfGo8jrEr3mBUWtdkU
