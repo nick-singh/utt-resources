@@ -17,8 +17,6 @@ app = Flask(__name__)
 
 
 
-
-
 @auth.verify_password
 def verify_password(username_or_token, password):
     #Try to see if it's a token first
