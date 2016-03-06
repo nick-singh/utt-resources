@@ -77,7 +77,8 @@ def showAllProducts():
 @app.route('/products/<category>')
 @auth.login_required
 def showCategoriedProducts(category):
-    if category == 'fruit':
+    if category == 'fruit':/token route here to get a token for a user with login credentials
+
         fruit_items = session.query(Product).filter_by(category = 'fruit').all()
         return jsonify(fruit_products = [f.serialize for f in fruit_items])
     if category == 'legume':
