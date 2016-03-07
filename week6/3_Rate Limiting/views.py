@@ -8,22 +8,37 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-
+"""
+    For this exercise the IP address of the client as the identifier.
+    This way rate limiting works even for users who are not logged in.
+"""
 
 
 
 class RateLimit(object):
+    # give the key an extra 10 seconds to expire
+    # in redis, so badly synchronized clocks
+    # between workers and the redis server do not cause any problems
     expiration_window = 10
+    """
+        key_prefix - keeps tracks of the ratelimit for each request
+        limit and per - the number of request to allow over a period
+        send_x_headers - boolean optoin to inject into each resposnse 
+                         header the nubmer of remaining requests a client can make
 
+    """
     def __init__(self, key_prefix, limit, per, send_x_headers):
+        # a timestamp to indicate when a request limit can reset
         self.reset = (int(time.time()) // per) * per + per
         self.key = key_prefix + str(self.reset)
         self.limit = limit
         self.per = per
         self.send_x_headers = send_x_headers
+        # pipeline is used so that you cannot increment
+        # without setting the expiration
         p = redis.pipeline()
-        p.incr(self.key)
-        p.expireat(self.key, self.reset + self.expiration_window)
+        p.incr(self.key) # increments key
+        p.expireat(self.key, self.reset + self.expiration_window) # expires based on the reset value
         self.current = min(p.execute()[0], limit)
 
     remaining = property(lambda x: x.limit - x.current)
